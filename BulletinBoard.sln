@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BulletinBoard.Core", "Bulle
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BulletinBoard.DAL", "BulletinBoard.DAL\BulletinBoard.DAL.csproj", "{68B614E5-84D8-4288-9E4E-B3AB2B1E3BC5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BulletinBoard.Api", "BulletinBoard.Api\BulletinBoard.Api.csproj", "{DFFB7038-0801-4509-8A05-24758685900E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{68B614E5-84D8-4288-9E4E-B3AB2B1E3BC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68B614E5-84D8-4288-9E4E-B3AB2B1E3BC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68B614E5-84D8-4288-9E4E-B3AB2B1E3BC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFFB7038-0801-4509-8A05-24758685900E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFFB7038-0801-4509-8A05-24758685900E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFFB7038-0801-4509-8A05-24758685900E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFFB7038-0801-4509-8A05-24758685900E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
