@@ -11,6 +11,9 @@ namespace BulletinBoard.DAL
 {
     public class BulletinBoardDbContext : IdentityDbContext<User>
     {
+        public BulletinBoardDbContext() : base("BulletinBoardDb")
+        { }
+
         public DbSet<Advert> Adverts { get; set; }
 
         public DbSet<Category> Categories { get; set; }

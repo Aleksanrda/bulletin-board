@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BulletinBoard.DAL.Repositories
 {
-    public class UnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private BulletinBoardDbContext _bulletinBoardDbContext;
 
