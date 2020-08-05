@@ -227,6 +227,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Auth\LogIn.cshtml" />
+    <Content Include="Views\Auth\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -246,6 +247,10 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BulletinBoard.Api\BulletinBoard.Api.csproj">
+      <Project>{DFFB7038-0801-4509-8A05-24758685900E}</Project>
+      <Name>BulletinBoard.Api</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BulletinBoard.Core\BulletinBoard.Core.csproj">
       <Project>{cc70520d-fa97-40c5-91cd-90bd5da5f4e3}</Project>
       <Name>BulletinBoard.Core</Name>

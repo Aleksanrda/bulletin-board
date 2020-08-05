@@ -63,6 +63,10 @@
     <Compile Include="Migrations\202008041711376_Give_it_a_name.Designer.cs">
       <DependentUpon>202008041711376_Give_it_a_name.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008041848075_AddAutofac.cs" />
+    <Compile Include="Migrations\202008041848075_AddAutofac.Designer.cs">
+      <DependentUpon>202008041848075_AddAutofac.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
@@ -84,6 +88,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008041711376_Give_it_a_name.resx">
       <DependentUpon>202008041711376_Give_it_a_name.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008041848075_AddAutofac.resx">
+      <DependentUpon>202008041848075_AddAutofac.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

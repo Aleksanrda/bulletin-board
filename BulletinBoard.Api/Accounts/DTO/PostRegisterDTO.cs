@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BulletinBoard.Core.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace BulletinBoard.Api.Accounts.DTO
         public string UserName { get; set; }
 
         [Required]
-        public string TypeUser { get; set; }
+        public TypeUser TypeUser { get; set; }
 
         [Required]
         [EmailAddress]
@@ -28,6 +29,8 @@ namespace BulletinBoard.Api.Accounts.DTO
 
         public string FullName { get; set; }
 
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime BirthDate { get; set; }
 
         public string Bio { get; set; }

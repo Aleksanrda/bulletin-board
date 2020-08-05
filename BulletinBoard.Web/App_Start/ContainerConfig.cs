@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
+using BulletinBoard.Api.Accounts;
 using BulletinBoard.Core.Entities;
 using BulletinBoard.Core.Repositories;
 using BulletinBoard.DAL;
@@ -40,9 +41,11 @@ namespace BulletinBoard.Web.App_Start
                 .As(typeof(RoleStore<Role>))
                 .WithParameter("context", new BulletinBoardDbContext());
 
-            //builder.RegisterType<PlantationsService>().As<IPlantationsService>().InstancePerRequest();
+            builder.RegisterType<AccountsService>().As<IAccountsService>().InstancePerRequest();
 
-
+            builder.RegisterType(typeof(RepositoryBase<Role>))
+                .As(typeof(IRepository<Role>))
+                .InstancePerRequest();
 
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
