@@ -229,6 +229,7 @@
     <Content Include="Views\Auth\Register.cshtml" />
     <Content Include="Views\Auth\LogIn.cshtml" />
     <Content Include="Views\Auth\ChangeProfile.cshtml" />
+    <Content Include="Views\Auth\ChangePassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

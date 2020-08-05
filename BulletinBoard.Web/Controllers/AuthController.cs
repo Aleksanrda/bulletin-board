@@ -117,7 +117,7 @@ namespace BulletinBoard.Web.Controllers
                 {
                     IAuthenticationManager authenticationManager = HttpContext.GetOwinContext().Authentication;
                     authenticationManager.SignOut();
-                    return RedirectToAction("Login", "Account");
+                    return RedirectToAction("LogIn", "Auth");
                 }
                 else
                 {
@@ -174,7 +174,7 @@ namespace BulletinBoard.Web.Controllers
         {
             IAuthenticationManager authenticationManager = HttpContext.GetOwinContext().Authentication;
             authenticationManager.SignOut();
-            return RedirectToAction("Login", "Account");
+            return RedirectToAction("LogIn", "Auth");
         }
     }
 }
