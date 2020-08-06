@@ -55,17 +55,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BulletinBoardDbContext.cs" />
-    <Compile Include="Migrations\202008041440163_CreateDb.cs" />
-    <Compile Include="Migrations\202008041440163_CreateDb.Designer.cs">
-      <DependentUpon>202008041440163_CreateDb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202008041711376_Give_it_a_name.cs" />
-    <Compile Include="Migrations\202008041711376_Give_it_a_name.Designer.cs">
-      <DependentUpon>202008041711376_Give_it_a_name.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202008041848075_AddAutofac.cs" />
-    <Compile Include="Migrations\202008041848075_AddAutofac.Designer.cs">
-      <DependentUpon>202008041848075_AddAutofac.cs</DependentUpon>
+    <Compile Include="Migrations\202008061141462_AddMigration.cs" />
+    <Compile Include="Migrations\202008061141462_AddMigration.Designer.cs">
+      <DependentUpon>202008061141462_AddMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -83,14 +75,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202008041440163_CreateDb.resx">
-      <DependentUpon>202008041440163_CreateDb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008041711376_Give_it_a_name.resx">
-      <DependentUpon>202008041711376_Give_it_a_name.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008041848075_AddAutofac.resx">
-      <DependentUpon>202008041848075_AddAutofac.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202008061141462_AddMigration.resx">
+      <DependentUpon>202008061141462_AddMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -15,7 +15,6 @@ namespace BulletinBoard.DAL.Repositories
         private IRepository<User> _users;
         private IRepository<Advert> _adverts;
         private IRepository<Comment> _comments;
-        private IRepository<Category> _categories;
 
         public UnitOfWork(BulletinBoardDbContext bulletinBoardDbContext)
         {
@@ -28,15 +27,6 @@ namespace BulletinBoard.DAL.Repositories
             {
                 return _users ??
                     (_users = new RepositoryBase<User>(_bulletinBoardDbContext));
-            }
-        }
-
-        public IRepository<Category> Categories
-        {
-            get
-            {
-                return _categories ??
-                    (_categories = new RepositoryBase<Category>(_bulletinBoardDbContext));
             }
         }
 

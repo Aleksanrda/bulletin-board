@@ -22,6 +22,6 @@ namespace BulletinBoard.Core.Repositories
 
         void Delete(object id);
 
-        TEntity GetByID(object id);
+        Task<TEntity> GetByID(object id);
     }
 }

@@ -34,6 +34,7 @@ namespace BulletinBoard.Web.Controllers
         public ActionResult LogIn(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
+
             return View();
         }
 
@@ -68,6 +69,7 @@ namespace BulletinBoard.Web.Controllers
                     ModelState.AddModelError("", "Invalid username or password.");
                 }
             }
+
             return View(model);
         }
 
@@ -95,6 +97,7 @@ namespace BulletinBoard.Web.Controllers
                     ModelState.AddModelError("UserName", "Error while creating the user!");
                 }
             }
+
             return View(model);
         }
 
@@ -113,6 +116,7 @@ namespace BulletinBoard.Web.Controllers
             {
                 User user = userManager.FindByName(HttpContext.User.Identity.Name);
                 IdentityResult result = userManager.ChangePassword(user.Id, model.OldPassword, model.NewPassword);
+
                 if (result.Succeeded)
                 {
                     IAuthenticationManager authenticationManager = HttpContext.GetOwinContext().Authentication;
@@ -124,6 +128,7 @@ namespace BulletinBoard.Web.Controllers
                     ModelState.AddModelError("", "Error while changing the password.");
                 }
             }
+
             return View(model);
         }
 
@@ -174,6 +179,7 @@ namespace BulletinBoard.Web.Controllers
         {
             IAuthenticationManager authenticationManager = HttpContext.GetOwinContext().Authentication;
             authenticationManager.SignOut();
+
             return RedirectToAction("LogIn", "Auth");
         }
     }

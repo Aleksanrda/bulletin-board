@@ -59,9 +59,9 @@ namespace BulletinBoard.DAL.Repositories
             Delete(entityToDelete);
         }
 
-        public TEntity GetByID(object id)
+        public async Task<TEntity> GetByID(object id)
         {
-            return bulletinBoardDbSet.Find(id);
+            return await bulletinBoardDbSet.FindAsync(id);
         }
     }
 }

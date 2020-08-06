@@ -3,7 +3,7 @@ namespace BulletinBoard.DAL.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class CreateDb : DbMigration
+    public partial class AddMigration : DbMigration
     {
         public override void Up()
         {
@@ -13,29 +13,16 @@ namespace BulletinBoard.DAL.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Title = c.String(nullable: false),
-                        Description = c.String(),
+                        Description = c.String(nullable: false),
                         Place = c.String(),
-                        ContactEmail = c.String(),
-                        Photo = c.Binary(),
-                        CategoryId = c.Int(nullable: false),
-                        UserId = c.Int(nullable: false),
-                        User_Id = c.String(maxLength: 128),
+                        ContactEmail = c.String(nullable: false),
+                        ImagePath = c.String(),
+                        Category = c.Int(nullable: false),
+                        UserId = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Categories", t => t.CategoryId, cascadeDelete: true)
-                .ForeignKey("dbo.AspNetUsers", t => t.User_Id)
-                .Index(t => t.CategoryId)
-                .Index(t => t.User_Id);
-            
-            CreateTable(
-                "dbo.Categories",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Title = c.String(nullable: false),
-                        CategoryPhoto = c.Binary(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id);
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId)
+                .Index(t => t.UserId);
             
             CreateTable(
                 "dbo.Comments",
@@ -55,6 +42,9 @@ namespace BulletinBoard.DAL.Migrations
                     {
                         Id = c.String(nullable: false, maxLength: 128),
                         TypeUser = c.Int(nullable: false),
+                        FullName = c.String(),
+                        BirthDate = c.DateTime(nullable: false),
+                        Bio = c.String(),
                         Email = c.String(maxLength: 256),
                         EmailConfirmed = c.Boolean(nullable: false),
                         PasswordHash = c.String(),
@@ -114,6 +104,8 @@ namespace BulletinBoard.DAL.Migrations
                     {
                         Id = c.String(nullable: false, maxLength: 128),
                         Name = c.String(nullable: false, maxLength: 256),
+                        Description = c.String(),
+                        Discriminator = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.Name, unique: true, name: "RoleNameIndex");
@@ -126,9 +118,8 @@ namespace BulletinBoard.DAL.Migrations
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.Adverts", "User_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Adverts", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.Comments", "AdvertId", "dbo.Adverts");
-            DropForeignKey("dbo.Adverts", "CategoryId", "dbo.Categories");
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
@@ -136,15 +127,13 @@ namespace BulletinBoard.DAL.Migrations
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.Comments", new[] { "AdvertId" });
-            DropIndex("dbo.Adverts", new[] { "User_Id" });
-            DropIndex("dbo.Adverts", new[] { "CategoryId" });
+            DropIndex("dbo.Adverts", new[] { "UserId" });
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.Comments");
-            DropTable("dbo.Categories");
             DropTable("dbo.Adverts");
         }
     }

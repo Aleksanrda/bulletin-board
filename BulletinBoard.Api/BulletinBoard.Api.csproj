@@ -52,6 +52,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -68,15 +70,12 @@
     <Compile Include="Accounts\IAccountsService.cs" />
     <Compile Include="Adverts\AdvertsService.cs" />
     <Compile Include="Adverts\IAdvertsService.cs" />
-    <Compile Include="Categories\CategoriesService.cs" />
-    <Compile Include="Categories\ICategoriesService.cs" />
     <Compile Include="Comments\CommentsService.cs" />
     <Compile Include="Comments\ICommentsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Adverts\DTO\" />
-    <Folder Include="Categories\DTO\" />
     <Folder Include="Comments\DTO\" />
   </ItemGroup>
   <ItemGroup>

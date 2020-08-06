@@ -11,8 +11,6 @@ namespace BulletinBoard.Core.Repositories
     {
         IRepository<User> Users { get; }
 
-        IRepository<Category> Categories { get; }
-
         IRepository<Advert> Adverts { get; }
 
         IRepository<Comment> Comments { get; }

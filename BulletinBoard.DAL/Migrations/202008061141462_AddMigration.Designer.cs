@@ -7,13 +7,13 @@ namespace BulletinBoard.DAL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class Give_it_a_name : IMigrationMetadata
+    public sealed partial class AddMigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Give_it_a_name));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddMigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "202008041711376_Give_it_a_name"; }
+            get { return "202008061141462_AddMigration"; }
         }
         
         string IMigrationMetadata.Source

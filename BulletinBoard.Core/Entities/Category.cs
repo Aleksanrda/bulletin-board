@@ -7,14 +7,12 @@ using System.Threading.Tasks;
 
 namespace BulletinBoard.Core.Entities
 {
-    public class Category : Entity
+    public enum Category 
     {
-        [Required]
-        public string Title { get; set; }
-
-        [Required]
-        public byte[] CategoryPhoto { get; set; }
-
-        public ICollection<Advert> Adverts { get; set; }
+        Sport,
+        Work,
+        Meetings,
+        Programming,
+        Other
     }
 }
