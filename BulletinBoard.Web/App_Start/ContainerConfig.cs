@@ -3,6 +3,7 @@ using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
 using BulletinBoard.Api.Accounts;
 using BulletinBoard.Api.Adverts;
+using BulletinBoard.Api.Comments;
 using BulletinBoard.Core.Entities;
 using BulletinBoard.Core.Repositories;
 using BulletinBoard.DAL;
@@ -49,6 +50,8 @@ namespace BulletinBoard.Web.App_Start
             builder.RegisterType<AccountsService>().As<IAccountsService>().InstancePerRequest();
 
             builder.RegisterType<AdvertsService>().As<IAdvertsService>().InstancePerRequest();
+
+            builder.RegisterType<CommentsService>().As<ICommentsService>().InstancePerRequest();
 
             builder.RegisterType(typeof(RepositoryBase<Role>))
                 .As(typeof(IRepository<Role>))

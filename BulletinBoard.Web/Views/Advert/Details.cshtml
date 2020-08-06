@@ -51,6 +51,14 @@
         </dd>
     </dl>
 </div>
+
+<div>
+    @foreach (var b in ViewBag.Comments)
+    {
+        @b.AdvertComment
+    }
+</div>
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")

@@ -12,6 +12,7 @@ using System.Data;
 using System.Data.Entity.Infrastructure;
 using BulletinBoard.DAL;
 using System.Threading.Tasks;
+using BulletinBoard.Api.Comments;
 
 namespace BulletinBoard.Web.Controllers
 {
@@ -19,12 +20,15 @@ namespace BulletinBoard.Web.Controllers
     public class AdvertController : Controller
     {
         private readonly IAdvertsService _advertsService;
+        private readonly ICommentsService _commentsService;
         private readonly UserStore<User> _userStore;
         private UserManager<User> _userManager;
 
-        public AdvertController(IAdvertsService advertsService, UserStore<User> userStore)
+        public AdvertController(IAdvertsService advertsService, ICommentsService commentsService,
+            UserStore<User> userStore)
         {
             _advertsService = advertsService;
+            _commentsService = commentsService;
             _userStore = userStore;
             _userManager = new UserManager<User>(userStore);
         }
@@ -54,6 +58,10 @@ namespace BulletinBoard.Web.Controllers
             {
                 return View("NotFound");
             }
+
+            var advertComments = _commentsService.GetUserComments(id);
+       
+            ViewBag.Comments = advertComments;
 
             return View(model);
         }
