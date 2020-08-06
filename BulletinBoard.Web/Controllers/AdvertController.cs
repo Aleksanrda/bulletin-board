@@ -66,7 +66,7 @@ namespace BulletinBoard.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateNewAdvert(Advert advert)
+        public async Task<ActionResult> CreateNewAdvert(Advert advert)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace BulletinBoard.Web.Controllers
 
                 User user = _userManager.FindByName(HttpContext.User.Identity.Name);
 
-                _advertsService.AddEvent(advert, user.Id);
+                await _advertsService.AddEvent(advert, user.Id);
 
                 ViewData["Created"] = "Event successfully created";
             }
@@ -109,6 +109,35 @@ namespace BulletinBoard.Web.Controllers
         {
             await _advertsService.Delete(id);
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> Edit(int id)
+        {
+            var model = await _advertsService.GetAdvertById(id);
+
+            if (model == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Edit(Advert advert)
+        {
+            if (ModelState.IsValid)
+            {
+                User user = _userManager.FindByName(HttpContext.User.Identity.Name);
+
+                await _advertsService.Update(advert, user.Id);
+
+                return RedirectToAction("Details", new { id = advert.Id });
+            }
+
+            return View(advert);
         }
     }
 }

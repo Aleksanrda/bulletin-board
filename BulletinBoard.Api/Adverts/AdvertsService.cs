@@ -53,30 +53,35 @@ namespace BulletinBoard.Api.Adverts
 
         public async Task Update(Advert advert, string userId)
         {
-            var resAdvert = await _unitOfWork.Adverts.GetByID(advert.Id);
-
-            if (resAdvert == null)
+            if (advert == null)
             {
-                throw new ArgumentNullException(nameof(resAdvert));
+                throw new ArgumentNullException(nameof(advert));
             }
 
             var users = _unitOfWork.Users.GetAll();
             var user = users.FirstOrDefault(
                 u => u.Id == userId);
 
-            resAdvert.Title = advert.Title;
-            resAdvert.Description = advert.Title;
-            resAdvert.Place = advert.Place;
-            resAdvert.ContactEmail = advert.ContactEmail;
-            resAdvert.Category = advert.Category;
+            var adverts = _unitOfWork.Adverts.GetAll();
+            var editAdvert = adverts.FirstOrDefault(
+                currentAdvert => currentAdvert.Id == advert.Id);
+
+            if (editAdvert != null)
+            {
+                editAdvert.Title = advert.Title;
+                editAdvert.Description = advert.Description;
+                editAdvert.Place = advert.Place;
+                editAdvert.ContactEmail = advert.ContactEmail;
+                editAdvert.Category = advert.Category;
+            }
 
             if (user != null)
             {
-                resAdvert.UserId = userId;
-                resAdvert.User = user;
+                editAdvert.UserId = userId;
+                editAdvert.User = user;
             }
 
-            _unitOfWork.Adverts.Update(advert);
+            _unitOfWork.Adverts.Update(editAdvert);
 
             await _unitOfWork.SaveChangesAsync();
         }
