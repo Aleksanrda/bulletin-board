@@ -11,6 +11,7 @@ using System.IO;
 using System.Data;
 using System.Data.Entity.Infrastructure;
 using BulletinBoard.DAL;
+using System.Threading.Tasks;
 
 namespace BulletinBoard.Web.Controllers
 {
@@ -31,6 +32,28 @@ namespace BulletinBoard.Web.Controllers
         public ActionResult Index()
         {
             var model = _advertsService.GetAdverts();
+
+            return View(model);
+        }
+
+        public ActionResult GetUserAdverts()
+        {
+            User user = _userManager.FindByName(HttpContext.User.Identity.Name);
+
+            var model = _advertsService.GetUserAdverts(user.Id);
+
+            return View(model);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> Details(int id)
+        {
+            var model = await _advertsService.GetAdvertById(id);
+
+            if (model == null)
+            {
+                return View("NotFound");
+            }
 
             return View(model);
         }
@@ -67,6 +90,25 @@ namespace BulletinBoard.Web.Controllers
             return View();
         }
 
+        [HttpGet]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var model = await _advertsService.GetAdvertById(id);
 
+            if (model == null)
+            {
+                return View("NotFound");
+            }
+
+            return PartialView(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Delete(int id, FormCollection form)
+        {
+            await _advertsService.Delete(id);
+            return RedirectToAction("Index");
+        }
     }
 }
