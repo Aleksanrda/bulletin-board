@@ -185,6 +185,7 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\AdvertController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -280,11 +281,13 @@
     <Content Include="Views\Advert\GetUserAdverts.cshtml" />
     <Content Include="Views\Advert\Delete.cshtml" />
     <Content Include="Views\Advert\Edit.cshtml" />
+    <Content Include="Views\Advert\CreateNewComment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Image\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Comment\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

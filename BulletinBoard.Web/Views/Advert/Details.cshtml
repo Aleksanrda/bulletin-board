@@ -52,10 +52,15 @@
     </dl>
 </div>
 
+@Html.Action("CreateNewComment", Model.Id)
+
+<h2> Comments </h2>
+
 <div>
     @foreach (var b in ViewBag.Comments)
     {
         @b.AdvertComment
+        <br/>
     }
 </div>
 

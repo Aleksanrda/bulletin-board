@@ -99,6 +99,26 @@ namespace BulletinBoard.Web.Controllers
         }
 
         [HttpGet]
+        public ActionResult CreateNewComment(int id)
+        {
+            ViewData["AdvertId"] = id;
+
+            return PartialView();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> CreateNewComment(int advertId, Comment comment)
+        {
+            if (ModelState.IsValid)
+            {
+                await _commentsService.AddComment(comment, advertId);
+            }
+
+            return RedirectToAction("Details", "Advert", new { id = advertId });
+        }
+
+        [HttpGet]
         public async Task<ActionResult> Delete(int id)
         {
             var model = await _advertsService.GetAdvertById(id);
