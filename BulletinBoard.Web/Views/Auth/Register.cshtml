@@ -1,6 +1,7 @@
 ﻿@model BulletinBoard.Api.Accounts.DTO.PostRegisterDTO
 
 @{
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
     ViewBag.Title = "Register";
 }
 
@@ -85,3 +86,5 @@
     </div>
 </div>
 }
+
+<input type="button" value="LogIn" onclick="location.href='@Url.Action("LogIn", "Auth")'" />

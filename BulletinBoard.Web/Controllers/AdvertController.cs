@@ -16,7 +16,7 @@ using BulletinBoard.Api.Comments;
 
 namespace BulletinBoard.Web.Controllers
 {
-    [AllowAnonymous]
+    [Authorize]
     public class AdvertController : Controller
     {
         private readonly IAdvertsService _advertsService;
@@ -40,6 +40,7 @@ namespace BulletinBoard.Web.Controllers
             return View(model);
         }
 
+        [HttpGet]
         public ActionResult GetUserAdverts()
         {
             User user = _userManager.FindByName(HttpContext.User.Identity.Name);

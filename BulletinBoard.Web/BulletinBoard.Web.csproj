@@ -282,6 +282,7 @@
     <Content Include="Views\Advert\Delete.cshtml" />
     <Content Include="Views\Advert\Edit.cshtml" />
     <Content Include="Views\Advert\CreateNewComment.cshtml" />
+    <Content Include="Views\Shared\_LoginLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
