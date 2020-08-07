@@ -96,7 +96,7 @@ namespace BulletinBoard.Web.Controllers
                 ViewData["Created"] = "Event successfully created";
             }
 
-            return View();
+            return RedirectToAction("GetUserAdverts", "Advert");
         }
 
         [HttpGet]

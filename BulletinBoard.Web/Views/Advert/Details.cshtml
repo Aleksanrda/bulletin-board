@@ -4,62 +4,69 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
-
 <div>
-    <h4>Advert</h4>
-    <hr />
+    <br />
     <dl class="dl-horizontal">
+
         <dt>
             @Html.DisplayNameFor(model => model.Title)
+            <br />
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Title)
+            <br />
         </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.Description)
+            <br />
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Description)
+            <br />
         </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.Place)
+            <br />
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Place)
+            <br />
         </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.ContactEmail)
+            <br />
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.ContactEmail)
+            <br />
         </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.ImagePath)
+            <br />
         </dt>
 
         <dd>
             <img src="@Url.Content(Model.ImagePath)" />
+            <br />
         </dd>
     </dl>
 </div>
 
 @Html.Action("CreateNewComment", Model.Id)
 
-<h2> Comments </h2>
-
 <div>
     @foreach (var b in ViewBag.Comments)
     {
         @b.AdvertComment
-        <br/>
+        <br />
+        <br />
     }
 </div>

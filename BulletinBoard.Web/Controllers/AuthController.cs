@@ -61,7 +61,7 @@ namespace BulletinBoard.Web.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Advert");
                     }
                 }
                 else
@@ -98,7 +98,7 @@ namespace BulletinBoard.Web.Controllers
                 }
             }
 
-            return View(model);
+            return RedirectToAction("Index", "Advert");
         }
 
         [Authorize]
@@ -172,9 +172,7 @@ namespace BulletinBoard.Web.Controllers
             return View(model);
         }
 
-        [HttpPost]
         [Authorize]
-        [ValidateAntiForgeryToken]
         public ActionResult LogOut()
         {
             IAuthenticationManager authenticationManager = HttpContext.GetOwinContext().Authentication;

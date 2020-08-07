@@ -1,0 +1,58 @@
+﻿body {
+    background-image: url("img/fon.jpeg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#btn_lgn {
+    width: 100%;
+}
+
+.card-body {
+    height: 700px;
+}
+
+.card {
+    height: 650px;
+    width: 550px;
+}
+
+label {
+    color: #FFFFFF;
+}
+
+.inp {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid black;
+    border-color: darkslategray;
+}
+
+.main-block {
+    margin-top: 25px;
+    margin-left: -40%;
+}
+
+.card {
+    border-radius: 20px 20px 20px 20px;
+}
+
+.card-footer {
+    height: 200px;
+}
+
+.card {
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 17px;
+}
+
+.btn-lgn {
+    width: 100px;
+    height: 40px;
+    border-radius: 50px 50px 50px 50px;
+    font-family: 'Sulphur Point', sans-serif;
+    color: #FFFFFF;
+    background-color: rgba(0,0,0,0.5);
+}

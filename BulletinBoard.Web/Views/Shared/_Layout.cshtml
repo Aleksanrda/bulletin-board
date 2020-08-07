@@ -3,7 +3,6 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
     <link href='@Url.Content("~/Content/themes/base/jquery-ui.css")' rel="stylesheet" type="text/css" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -25,16 +24,13 @@
                     <li>@Html.ActionLink("My Adverts", "GetUserAdverts", "Advert")</li>
                     <li>@Html.ActionLink("Add My Advert", "CreateNewAdvert", "Advert")</li>
                     <li>@Html.ActionLink("Profile", "ChangeProfile", "Auth")</li>
+                    <li>@Html.ActionLink("LogOut", "LogOut", "Auth")</li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
